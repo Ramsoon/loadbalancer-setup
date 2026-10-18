@@ -7,7 +7,7 @@ variable "region" {
 variable "key_name" {
   description = "Name of an existing EC2 key pair in this region (used for SSH)"
   type        = string
-  default     = "febcourse"
+  default     = "prodkey"
 }
 
 variable "instance_type" {
@@ -46,5 +46,11 @@ variable "ssh_allowed_cidr" {
 variable "enable_nat_gateway" {
   description = "Give the private subnet outbound internet (for installing Node.js). Costs about $32/month while it exists."
   type        = bool
-  default     = false
+  default     = true
+}
+
+variable "backend_count"  {
+  type        = number
+  description = "Number of backend servers to create"
+  default     = 2
 }
